@@ -1,0 +1,291 @@
+body,
+div,
+section,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    background-color: #e4e4e4;
+}
+
+/* 音乐容器 */
+.out {
+    position: relative;
+    margin: 50px auto;
+    width: 1400px;
+    height: 800px;
+    background-color: black;
+    /* opacity: .1; */
+    border-radius: 10px;
+    overflow: hidden;
+    background: url(../sourcematerial/pictures/back4.png) no-repeat center;
+    background-size: contain;
+    background-color: rgba(red, green, blue, .1);
+}
+
+/* 头部logo 搜索框 设置等图标所在区域 */
+.commom {
+    width: 1400px;
+    position: relative;
+}
+
+header {
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    background-color: rgb(93, 92, 92);
+}
+
+.headercommom {
+    display: inline-block;
+}
+
+/* logo */
+.logo {
+    width: 640px;
+    margin-left: 60px;
+    font: italic bold 25px '微软雅黑';
+    line-height: 60px;
+    color: white;
+}
+
+/* 搜索框 */
+.search {
+    margin-right: 60px;
+    width: 540px;
+}
+
+.musicsearch {
+    float: left;
+    margin-top: 13px;
+    width: 500px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    text-indent: 1em;
+    background-color: rgb(68, 68, 68);
+    transition: .2s;
+
+}
+
+.searchclick {
+    float: right;
+    margin-top: 13px;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    padding: 8px;
+    color: white;
+}
+
+.searchclick:hover {
+    cursor: pointer;
+}
+
+/* 主题部分 音乐列表 */
+article {
+    height: 690px;
+}
+
+.articlecommom {
+    float: left;
+    height: 690px;
+    overflow: hidden;
+}
+
+.left,
+.songname {
+    width: 400px;
+}
+
+.songname {
+    /* width: 100%; */
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.songname::-webkit-scrollbar {
+    display: none;
+}
+
+
+.songname li {
+    width: 380px;
+    height: 70px;
+    border-radius: 20px;
+    background-color: white;
+    margin: 10px 10px;
+    font-size: 25px;
+    line-height: 70px;
+    color: rgb(187, 236, 248);
+    text-indent: .5em;
+}
+
+
+/* 遮罩层 */
+video {
+    position: absolute;
+    top: 10%;
+    left: 63%;
+    transform: translateX(-50%);
+    width: 960px;
+    height: 540px;
+    z-index: 2000;
+}
+
+#close {
+    position: absolute;
+    z-index: 1000;
+    top: 10%;
+    left: 95%;
+    font-size: 30px;
+    color: white;
+}
+
+/* 触摸阴影 */
+.songname li:hover {
+    box-shadow: 0px 0px 6px 6px #666566;
+    transition: .2s;
+}
+
+/* 歌曲名称 */
+.name {
+    display: inline-block;
+    width: 245px;
+    height: 60px;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    line-height: 70px;
+    transform: translateY(-2px);
+    vertical-align: top;
+    text-indent: 0;
+    overflow: hidden;
+}
+
+/* 触摸变小手 */
+#play-button:hover,
+#movie-button:hover {
+    cursor: pointer;
+    color: rgb(150, 205, 241);
+    transition: .5s;
+}
+
+/* 中间磁带播放动画 */
+.middle {
+    width: 500px;
+    padding: 150px 100px;
+}
+
+/* 磁带 */
+.magneticTape {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    overflow: hidden;
+}
+
+@keyframes Rotate {
+    from {
+        transform: rotateZ(0);
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+/* 音乐播放动画 */
+.playing {
+    animation-name: Rotate;
+    animation-iteration-count: infinite;
+    /* animation-play-state: paused; */
+    animation-timing-function: linear;
+    animation-duration: 5s;
+    animation-play-state: running;
+}
+
+.magneticTape img {
+    position: absolute;
+    float: left;
+    width: 100%;
+}
+
+/* 右侧评论区 */
+.right,
+.comment {
+    width: 500px;
+
+}
+
+.comment {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.comment::-webkit-scrollbar {
+    display: none;
+}
+
+.comment li {
+    margin-bottom: 10px;
+    width: 480px;
+    /* height: 100px; */
+    background-color: white;
+    border-radius: 20px;
+}
+
+/* 头像 */
+.head {
+    margin: 8px 8px;
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.head img {
+    width: 100%;
+}
+
+/* 评论用户 */
+.Commentator {
+    font-size: 20px;
+    transform: translateY(-25px);
+}
+
+.details {
+    padding: 0px 10px;
+    width: 490px;
+    text-indent: 2em;
+    line-height: 25px;
+    color: rgb(102, 101, 102);
+    /* text-align: center; */
+}
+
+/* 底部播放控件部分 */
+footer {
+    height: 50px;
+    background-color: #364349;
+}
+
+footer audio {
+    width: 1400px;
+    height: 50px;
+    outline: none;
+    background-color: #f1f3f4;
+}

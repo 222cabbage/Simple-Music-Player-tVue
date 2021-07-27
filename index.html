@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="shortcut icon" href="sourcematerial/pictures/night.ico" />
+    <link rel="stylesheet" href="sourcematerial/css/bootstrap.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!-- 容器 -->
+    <div class="out" id="app">
+        <!-- 关闭mv -->
+        <span class="glyphicon glyphicon-remove"  id="close" @click='close' v-show="isShow"></span>
+        <header class="">
+            <section class="logo headercommom">
+                做一个自由又自律的人，靠势必实现的决心认真地活着
+            </section>
+            <section class="search headercommom">
+                <input type="text" class="musicsearch headercommom" id="musicname" v-model='search' @keyup.enter='searchMusic'>
+                <section class="searchclick" @click="searchMusic">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </section>
+            </section>
+        </header>
+        <article class="commom">
+            <section class="left articlecommom">
+                <ul class="songname articlecommom">
+                    <li v-for="item in musicList">
+                        <span class="glyphicon glyphicon-play headercommom" id="play-button" @click='playMusic(item.id)'></span>
+                        <section class="name headercommom">
+                            《{{item.name}}》
+                        </section>
+                        <span class="glyphicon glyphicon-facetime-video headercommom" id="movie-button" v-if="item.mvid != 0" @click='playMv(item.mvid)'></span>
+                    </li>
+                </ul>
+            </section>
+            <section class="middle articlecommom" >
+                <section class="magneticTape" :class="{playing:isPlaying}" v-show="!isShow">
+                    <img src="sourcematerial/pictures/disc.png" alt="" style="z-index: 111;">
+                    <img :src="musicCover" alt="">
+                   
+                </section>
+                 <video :src="mvurl" id="movies"  controls autoplay v-show="isShow"></video>
+                
+            </section>
+            <section class="right articlecommom" v-show="!isShow">
+                <ul class="comment">
+                    <li v-for="item in hotComments">
+                        <section class="head headercommom"><img :src="item.user.avatarUrl" alt="" style="width: 100%;"></section>
+                        <section class="Commentator headercommom">{{item.user.nickname}}</section>
+                        <section class="details">{{item.content}}</section>
+                    </li>
+                </ul>
+            </section>
+        </article>
+        <footer class="">
+            <audio :src="musicUrl" controls autoplay loop @play='play' @pause='pause'></audio>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        // 搜索框点击变色
+var musicname = document.querySelector('#musicname');
+musicname.addEventListener('focus',function(){
+    musicname.style.backgroundColor = 'white'
+    musicname.style.color = 'black'
+})
+musicname.onblur = function(){
+     musicname.style.backgroundColor = 'rgb(68, 68, 68)'
+     musicname.style.color = 'white'
+}
+    </script>
+</body>
+
+</html>
